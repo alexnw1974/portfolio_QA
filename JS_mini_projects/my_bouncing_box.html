@@ -1,0 +1,67 @@
+<html style='background-color: black'>
+  <div id="my_bouncing_box" style= "background-color: blue; border-radius: 3px; position: absolute; left: 0px; top: 0px; min-width: 100px; min-height: 100px; text-align: center; font-weight: bold; color: #999;" >derevian_o</div>
+  <script type="text/javascript">
+   var x = 0;
+   var y = 0;
+   var i = 0; 
+   var dir_x;
+   var dir_y;
+   
+   const height = window.innerHeight - 100;
+   const width = window.innerWidth - 100;
+
+   var box = document.getElementById('my_bouncing_box');
+   
+   let id = setInterval(function() {
+      i++;
+      move_y();
+      move_X();
+      console.log("Прошли: " + i + " шагов");
+      console.log(`x=${x} box.style.left=${box.style.left} width=${width}`);
+      console.log(`y=${y} box.style.topt=${box.style.top} height=${height}`);
+      console.log(`direction X =${dir_x} direction Y =${dir_y}`);
+      box.style.background = 'rgb('+ (y * 0.3) + ',' + (y * 0.1) + ',' + (255 - (y * 0.2)) + ')';
+      if (i == 10000) clearInterval(id);
+   }, 10); // 1000ms = 1s
+
+   function move_y() {
+                
+        if (y == 0) { 
+            box.style.top = (y+1);
+            y++;
+            dir_y = "down";
+        } else if (y == height) {
+            box.style.top = (y-1);
+            y--;
+            dir_y = "up";
+        } else if (y < height && dir_y == "down") { 
+            box.style.top = (y+1);
+            y++;
+        } else if (y < height && dir_y == "up") { 
+            box.style.top = (y-1);
+            y--;
+        }
+    }
+
+    function move_X() {
+        if (x == 0) { 
+            box.style.left = (x+1);
+            x++;
+            dir_x = "right";
+        } else if (x == width) { 
+            box.style.left = (x-1);
+            x--;
+            dir_x = "left";;
+        } else if (x < width && dir_x == "right") {
+            box.style.left = (x+1);
+            x++;            
+        } else if (x < width && dir_x == "left") {
+            box.style.left = (x-1);
+            x--;
+        }
+    }
+
+    
+
+  </script>
+</html>
