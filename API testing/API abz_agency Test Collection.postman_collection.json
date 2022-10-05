@@ -1,0 +1,193 @@
+{
+	"info": {
+		"_postman_id": "edb78845-8eba-441b-8236-7d4bf0d68e0e",
+		"name": "API abz_agency Test Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21387441"
+	},
+	"item": [
+		{
+			"name": "token for user registration",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://frontend-test-assignment-api.abz.agency/api/v1/token",
+					"protocol": "https",
+					"host": [
+						"frontend-test-assignment-api",
+						"abz",
+						"agency"
+					],
+					"path": [
+						"api",
+						"v1",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New user registration",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJpdiI6InZwQk4wMllueldJRzAyRlZUWGQxY0E9PSIsInZhbHVlIjoidXFieURXM0RWZDJ1bnhuYlB0dDNyekowKzJHdlJybm1GN1pYZDM5aG0zeGtpVmVrYjRBd0RoZFg3SGNkelpVVHdhbFNLclFSYnRvT09nbFJwdmFxMGc9PSIsIm1hYyI6IjUwYjg4YzZiMmY2OTIxZWJlNDFkZDE5MmFmOTA2ODQ1ODM4NjZiMDcxYTQ4ZWQyN2NiMmE1MmRlZjljNThiOTgifQ==",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Joseph Robinette Biden",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "biden74@president.usa",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "+380630000000",
+							"type": "text"
+						},
+						{
+							"key": "position_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "photo",
+							"type": "file",
+							"src": "/C:/Users/admin/Pictures/Joe Biden.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://frontend-test-assignment-api.abz.agency/api/v1/users",
+					"protocol": "https",
+					"host": [
+						"frontend-test-assignment-api",
+						"abz",
+						"agency"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users"
+					],
+					"query": [
+						{
+							"key": "namr",
+							"value": "Alex",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "alexnw@ukr.net",
+							"disabled": true
+						},
+						{
+							"key": "phone",
+							"value": "+380679333113",
+							"disabled": true
+						},
+						{
+							"key": "position",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User pagination",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://frontend-test-assignment-api.abz.agency/api/v1/users?page=1&offset=1&count=5",
+					"protocol": "https",
+					"host": [
+						"frontend-test-assignment-api",
+						"abz",
+						"agency"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "offset",
+							"value": "1"
+						},
+						{
+							"key": "count",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Information about the user by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://frontend-test-assignment-api.abz.agency/api/v1/users/15",
+					"protocol": "https",
+					"host": [
+						"frontend-test-assignment-api",
+						"abz",
+						"agency"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"15"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All available users positions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://frontend-test-assignment-api.abz.agency/api/v1/positions",
+					"protocol": "https",
+					"host": [
+						"frontend-test-assignment-api",
+						"abz",
+						"agency"
+					],
+					"path": [
+						"api",
+						"v1",
+						"positions"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
