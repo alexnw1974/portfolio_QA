@@ -1,0 +1,64 @@
+{
+  "list": [
+    {
+      "id": "1",
+      "name": "First",
+      "city": "Town1",
+      "address": {
+        "street": "Avenue1",
+        "building": "11",
+        "room": "111"
+      },
+      "contacts": {
+        "telefone": "1111111111",
+        "e-mail": "111@dot.com",
+        "skype": "live.cid.111"
+      }
+    },
+    {
+      "id": "2",
+      "name": "Second",
+      "city": "Town2",
+      "address": {
+        "street": "Avenue2",
+        "building": "22",
+        "room": "222"
+      },
+      "contacts": {
+        "telefone": "2222222222",
+        "e-mail": "222@dot.com",
+        "skype": "live.cid.222"
+      }
+    },
+    {
+      "id": "3",
+      "name": "Third",
+      "city": "Town3",
+      "address": {
+        "street": "Avenue3",
+        "building": "33",
+        "room": "333"
+      },
+      "contacts": {
+        "telefone": "3333333333",
+        "e-mail": "333@dot.com",
+        "skype": "live.cid.333"
+      }
+    },
+    {
+      "id": "4",
+      "name": "Fourth",
+      "city": "Town4",
+      "address": {
+        "street": "Avenue4",
+        "building": "44",
+        "room": "444"
+      },
+      "contacts": {
+        "telefone": "4444444444",
+        "e-mail": "444@dot.com",
+        "skype": "live.cid.444"
+      }
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="D:/ЛЕША/testing/SQL/БД для практики/dbeaver.sqlite.sqlite_" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="125"/><column_width id="3" width="2031"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,19:mainemployeeTerritories"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="employeeTerritories" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="126"/><column index="2" value="101"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="employees" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="126"/><column index="2" value="100"/><column index="3" value="103"/><column index="4" value="99"/><column index="5" value="70"/><column index="6" value="92"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="salaries" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="126"/><column index="2" value="87"/><column index="3" value="100"/><column index="4" value="91"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="sqlite_sequence" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="57"/><column index="2" value="52"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="titles" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="126"/><column index="2" value="146"/><column index="3" value="100"/><column index="4" value="91"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="Task 1">SELECT employee_no, first_name, last_name, hire_date
+FROM employees
+ORDER BY hire_date DESC; </sql><sql name="Task 2">SELECT first_name, last_name, birth_date
+FROM employees
+WHERE birth_date &gt;= &quot;1960-01-01&quot;
+--ORDER BY birth_date; 
+SELECT first_name, last_name, birth_date
+FROM employees
+WHERE birth_date &gt; &quot;1960%&quot;</sql><sql name="Task 3">SELECT first_name, last_name, birth_date
+FROM employees
+WHERE first_name LIKE &quot;Ma%&quot;;
+</sql><sql name="Task 4">SELECT employee_no, city
+FROM employeeTerritories
+WHERE city = 'Kyiv' OR city = 'Dnipro' OR city = 'Lviv';
+-- варіант 2
+SELECT employee_no, city
+FROM employeeTerritories
+WHERE city IN ('Kyiv', 'Dnipro', 'Lviv');</sql><sql name="Task 5">SELECT count (employee_no) AS &quot;total engineers&quot;
+FROM titles
+WHERE title = &quot;Engineer&quot;;
+
+SELECT count (title) AS total_engineers
+FROM titles
+WHERE title = &quot;Engineer&quot;;
+
+-- странне рішення: умова в селекті
+SELECT SUM (title = &quot;Engineer&quot;) AS [total engineers]
+FROM titles;
+</sql><sql name="Task 6">SELECT COUNT (employee_no), city
+FROM employeeTerritories
+GROUP BY city
+HAVING COUNT (employee_no)&gt; 10;
+
+-- красивіша шапка таблиці відповіді
+SELECT city, COUNT (employee_no) AS [Кількість працівників]
+FROM employeeTerritories
+GROUP BY city
+HAVING COUNT (employee_no)&gt; 10;</sql><sql name="Task 7">SELECT first_name, last_name, title
+FROM employees
+JOIN titles
+ON employees.employee_no = titles.employee_no; 
+
+SELECT employees.employee_no, first_name, last_name, title
+FROM employees
+JOIN titles
+ON employees.employee_no = titles.employee_no; </sql><sql name="Task 8">SELECT first_name, last_name, salary
+FROM employees
+JOIN salaries
+ON employees.employee_no = salaries.employee_no 
+WHERE salary &gt; 50000 AND salary &lt;=60000;
+
+SELECT first_name, last_name, salary
+FROM employees
+JOIN salaries
+ON employees.employee_no = salaries.employee_no 
+WHERE salary BETWEEN 50000 AND 60000;</sql><sql name="DISTINCT">SELECT DISTINCT city AS &quot;Унікальні міста&quot;
+FROM employeeTerritories;
+</sql><sql name="ORDER">SELECT employee_no AS id, last_name AS Призвище, birth_date AS Днюха
+FROM employees
+ORDER BY Призвище; </sql><sql name="IS LIKE =">SELECT first_name, last_name, birth_date
+FROM employees
+WHERE employee_no = '10070'; 
+
+SELECT employee_no, first_name, last_name, birth_date
+FROM employees
+WHERE employee_no IS '10070'; 
+
+SELECT employee_no, first_name, last_name
+FROM employees
+WHERE employee_no LIKE '10070';</sql><sql name="IN = OR">SELECT employee_no AS id, title, from_date
+FROM titles
+WHERE title = &quot;Senior Engineer&quot; OR title = 'Technique Leader';
+
+SELECT employee_no, title, from_date
+FROM titles
+WHERE title IN (&quot;Senior Engineer&quot;, 'Technique Leader');
+
+SELECT employee_no, title, from_date
+FROM titles
+WHERE title LIKE 'Senior%';</sql><sql name="IS NOT !=">SELECT employee_no, city
+FROM employeeTerritories
+WHERE city != 'Kyiv';
+
+SELECT employee_no AS id, city AS Міста
+FROM employeeTerritories
+WHERE Міста IS NOT 'Kyiv';
+/*зазвичай використовується IS NOT NULL*/</sql><sql name="BETWEEN">SELECT last_name, birth_date
+FROM employees
+WHERE birth_date &gt;= '1960-01-01' AND birth_date &lt;= '1964-12-31'; 
+
+SELECT first_name, last_name, birth_date
+FROM employees
+WHERE birth_date BETWEEN '1960-01-01'AND '1964-12-31'; 
+
+</sql><sql name="COUNT">SELECT COUNT (employee_no) AS Female
+FROM employees
+WHERE gender = 'F';
+/*GROUP BY city
+HAVING COUNT (employee_no)&gt; 10;</sql><sql name="INSERT">INSERT INTO employees (employee_no, birth_date, first_name, last_name, gender, hire_date)
+VALUES ('10100','1995-12-31','Viktoriia','Tutor','F','2000-01-01');
+
+INSERT INTO employees 
+VALUES ('10101','1996-01-01','Juliia','Sush','F','2022-02-24');
+
+SELECT *
+FROM employees
+WHERE birth_date &gt;= &quot;1963-01-01&quot;
+ORDER BY birth_date DESC; 
+
+SELECT *
+FROM employees
+WHERE employee_no = 10100;</sql><sql name="UPDATE">UPDATE employees
+SET first_name = 'Victory', last_name = 'Test'
+WHERE employee_no = 10100;
+
+SELECT *
+FROM employees
+WHERE birth_date &gt;= &quot;1963-01-01&quot;
+ORDER BY birth_date DESC; 
+
+SELECT *
+FROM employees
+WHERE employee_no = 10100;</sql><sql name="HAVING">SELECT count (employee_no) AS &quot;кількість працівників&quot;, title 
+FROM titles
+GROUP BY title
+HAVING COUNT (employee_no)&gt; 100;
+</sql><sql name="JOIN">SELECT first_name, last_name, city
+FROM employees
+JOIN employeeTerritories
+ON employees.employee_no = employeeTerritories.employee_no; 
+
+SELECT first_name AS &quot;им'я&quot;, last_name AS призвище, city AS місто
+FROM employees e
+JOIN employeeTerritories et
+ON e.employee_no = et.employee_no; </sql><sql name="комент">/*SELECT first_name, last_name, city
+FROM employees
+JOIN employeeTerritories
+ON employees.employee_no = employeeTerritories.employee_no; */
+
+SELECT first_name AS &quot;им'я&quot; -- наступний рядок я зроблю коментом. 
+	--	, last_name AS призвище
+		, city AS місто
+FROM employees e
+JOIN employeeTerritories et
+ON e.employee_no = et.employee_no; </sql><current_tab id="18"/></tab_sql></sqlb_project>

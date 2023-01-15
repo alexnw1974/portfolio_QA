@@ -1,0 +1,424 @@
+{
+	"info": {
+		"_postman_id": "71e5f276-0e03-4b0d-bdf9-872ac0952cce",
+		"name": "Test Trello REST API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21387441"
+	},
+	"item": [
+		{
+			"name": "ДЗ практика QA15",
+			"item": [
+				{
+					"name": "Create a new List (on the left)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify that 'name' object is 'string'\", function () {\r",
+									"        var jsonData = pm.response.json();\r",
+									"        pm.expect(jsonData.name).to.be.a(\"string\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://api.trello.com/1/lists?name=Left List&idBoard=63a85ee91e59de00c1a0e4ca&key={{yourKey}}&token={{yourToken}}&pos=top",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"lists"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Left List"
+								},
+								{
+									"key": "idBoard",
+									"value": "63a85ee91e59de00c1a0e4ca"
+								},
+								{
+									"key": "key",
+									"value": "{{yourKey}}"
+								},
+								{
+									"key": "token",
+									"value": "{{yourToken}}"
+								},
+								{
+									"key": "pos",
+									"value": "top"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new List (on the RIGHT)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://api.trello.com/1/lists?name=Колонка праворуч&idBoard=63a744c87484670163add7b6&key={{yourKey}}&token={{yourToken}}&pos=bottom",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"lists"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Колонка праворуч"
+								},
+								{
+									"key": "idBoard",
+									"value": "63a744c87484670163add7b6"
+								},
+								{
+									"key": "key",
+									"value": "{{yourKey}}"
+								},
+								{
+									"key": "token",
+									"value": "{{yourToken}}"
+								},
+								{
+									"key": "pos",
+									"value": "bottom"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Board",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://api.trello.com/1/boards/63a85ee91e59de00c1a0e4ca?key={{yourKey}}&token={{yourToken}}&name=Нове ім'я&desc=Новий опис",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"boards",
+								"63a85ee91e59de00c1a0e4ca"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{yourKey}}"
+								},
+								{
+									"key": "token",
+									"value": "{{yourToken}}"
+								},
+								{
+									"key": "name",
+									"value": "Нове ім'я"
+								},
+								{
+									"key": "desc",
+									"value": "Новий опис"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new Card in Left List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"pm.test(\"Verify that 'id' object is 'string'\", function () {\r",
+									"        var jsonData = pm.response.json();\r",
+									"        pm.expect(jsonData.id).to.be.a(\"string\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://api.trello.com/1/cards?idList=63a88120c3041603d3b7dc66&key={{yourKey}}&token={{yourToken}}&name=Картка в колнці ліворуч",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"cards"
+							],
+							"query": [
+								{
+									"key": "idList",
+									"value": "63a88120c3041603d3b7dc66"
+								},
+								{
+									"key": "key",
+									"value": "{{yourKey}}"
+								},
+								{
+									"key": "token",
+									"value": "{{yourToken}}"
+								},
+								{
+									"key": "name",
+									"value": "Картка в колнці ліворуч"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new Card in Right List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"pm.test(\"Verify that 'id' object is 'string'\", function () {\r",
+									"        var jsonData = pm.response.json();\r",
+									"        pm.expect(jsonData.id).to.be.a(\"string\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://api.trello.com/1/cards?idList=63a88622885a1001b7de8ffd&key={{yourKey}}&token={{yourToken}}&name=Картка в колнці праворуч",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"cards"
+							],
+							"query": [
+								{
+									"key": "idList",
+									"value": "63a88622885a1001b7de8ffd"
+								},
+								{
+									"key": "key",
+									"value": "{{yourKey}}"
+								},
+								{
+									"key": "token",
+									"value": "{{yourToken}}"
+								},
+								{
+									"key": "name",
+									"value": "Картка в колнці праворуч"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Підготовка до ДЗ",
+			"item": [
+				{
+					"name": "Get full list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.trello.com/1/members/me/boards?key={{yourKey}}&token={{yourToken}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"members",
+								"me",
+								"boards"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{yourKey}}"
+								},
+								{
+									"key": "token",
+									"value": "{{yourToken}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Board by idBoard",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.trello.com/1/boards/63a744c87484670163add7b6?key={{yourKey}}&token={{yourToken}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"boards",
+								"63a744c87484670163add7b6"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{yourKey}}"
+								},
+								{
+									"key": "token",
+									"value": "{{yourToken}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a New Board",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://api.trello.com/1/boards/?name=Second Board&key={{yourKey}}&token={{yourToken}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"boards",
+								""
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Second Board"
+								},
+								{
+									"key": "key",
+									"value": "{{yourKey}}"
+								},
+								{
+									"key": "token",
+									"value": "{{yourToken}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get boards (only name_id_URL)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.trello.com/1/members/me/boards?fields=name,url&key={{yourKey}}&token={{yourToken}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"trello",
+								"com"
+							],
+							"path": [
+								"1",
+								"members",
+								"me",
+								"boards"
+							],
+							"query": [
+								{
+									"key": "fields",
+									"value": "name,url"
+								},
+								{
+									"key": "key",
+									"value": "{{yourKey}}"
+								},
+								{
+									"key": "token",
+									"value": "{{yourToken}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

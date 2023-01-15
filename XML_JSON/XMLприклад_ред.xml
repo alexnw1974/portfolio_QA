@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<homework14>
+    <person id="1">
+        <id>1</id>
+        <name>Тетяна</name>
+        <city>Дніпро</city>
+        <address>
+            <street>Набережна перемоги</street>
+            <buildingNumber>134</buildingNumber>
+            <apartment>99</apartment>
+        </address>
+        <Contacts>
+            <phoneNumbers>
+                <number>+38 050 999 45 45</number>
+                <number>+38 067 999 45 45</number>
+            </phoneNumbers>
+            <email>tetyana@ukr.net</email>
+            <skype>tetyana_1811</skype>
+        </Contacts>
+    </person>
+    <person  id="2">
+        <id>2</id>
+        <name>Олексій</name>
+        <city>Київ</city>
+        <address>
+            <street>Ревуцького</street>
+            <buildingNumber>4</buildingNumber>
+            <apartment>39</apartment>
+        </address>
+        <Contacts>
+            <phoneNumbers>
+                <number>+38 095 100 10 10</number>
+                <number>+38 067 100 10 10</number>
+                <number>+38 093 100 10 10</number>
+                <number>+38 044 100 10 10</number>
+            </phoneNumbers>
+            <email>alex@gmail.com</email>
+            <skype/>
+        </Contacts>
+    </person>
+</homework14>

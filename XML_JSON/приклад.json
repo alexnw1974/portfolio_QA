@@ -1,0 +1,20 @@
+{ "People":
+    [
+      {"person_1":  
+         { "id": 1,
+           "name": "Ivan",          
+           "city": "Kyiv",
+           "Address": {"street":"Ivan_Franko", "building": "9", "apartment_number": "77"},
+           "Contacts": {"phone": ["(063) 100-10-10", "(050) 100-10-10", "(097) 100-10-10"],"email": "Admin@ocomp.info","skype": "user123"}
+         }
+      },
+      {"person_2":  
+         { "id": 2,
+           "name": "Dima",
+           "city": "Poltava",
+           "Address": {"street":"Pushkina", "building": "7", "apartment_number": "13"},
+           "Contacts":{"phone": "(099) 325-44-22", "email": "Dima@ukr.net", "skype": "Dima1953"}
+         }
+      }
+    ]
+}
